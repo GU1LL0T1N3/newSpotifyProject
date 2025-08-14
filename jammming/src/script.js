@@ -28,7 +28,7 @@ const codeChallenge = base64encode(hashed);
 
 // Requesting user auth
 const authUrl = new URL("https://accounts.spotify.com/authorize");
-const scope = ["playlist-read-private", "playlist-read-collaborative", "playlist-modify-private", "playlist-modify-public"];
+const scope = "playlist-read-private playlist-read-collaborative playlist-modify-private playlist-modify-public";
 const redirectUri = 'http://127.0.0.1:8000/callback';
 
 // Sets the generated code verifier into local storage
@@ -77,3 +77,5 @@ const getToken = async code => {
 
   localStorage.setItem('access_token', response.access_token);
 }
+
+export { getToken, code,  };
